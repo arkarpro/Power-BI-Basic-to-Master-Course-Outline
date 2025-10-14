@@ -258,7 +258,7 @@
                             </table>
                         </div>
 
-                        <img src="images/1.png" 
+                        <img src="images/2.png" 
                         alt="Placeholder for Chapter 2" class="w-full h-auto rounded-lg shadow-md my-8">
                         
                         <h4 id="ch2-sec1" class="section-title">
@@ -509,7 +509,7 @@
                             <li>Understanding the three main views: Report View, Data View, and Model View.</li>
                             <li>Importing simple data from Excel to create a first visual.</li>
                         </ul>
-                        <img src="https://via.placeholder.com/800x450.png?text=Chapter+11+Power+BI+Interface" alt="Placeholder for Chapter 11" class="w-full h-auto rounded-lg shadow-md my-8">
+                        <img src="images/11.png" alt="Placeholder for Chapter 11" class="w-full h-auto rounded-lg shadow-md my-8">
                     </div>
                 </div>
                 <div id="chapter-12" class="chapter-card">
@@ -518,7 +518,7 @@
                         <p class="concept-text lang-en"><strong>🎯 Purpose:</strong> To create a robust, reusable Date table using DAX, which is the foundation for all time intelligence analysis.</p>
                         <h4 class="section-title">🧠 Key Functions</h4>
                         <ul class="list-disc list-inside text-gray-700 space-y-1"><li><code>CALENDARAUTO()</code> / <code>CALENDAR()</code></li><li><code>ADDCOLUMNS()</code></li><li><code>FORMAT()</code>, <code>YEAR()</code>, <code>MONTH()</code>, <code>QUARTER()</code></li></ul>
-                        <img src="https://via.placeholder.com/800x450.png?text=Chapter+12+DAX+Date+Table" alt="Placeholder for Chapter 12" class="w-full h-auto rounded-lg shadow-md my-8">
+                        <img src="images/12.png" alt="Placeholder for Chapter 12" class="w-full h-auto rounded-lg shadow-md my-8">
                         <h4 class="section-title">🧪 Full DAX Formula for a Comprehensive Date Table</h4>
                         <div class="dax-code">date = 
 ADDCOLUMNS(
@@ -535,7 +535,7 @@ ADDCOLUMNS(
                     <div class="chapter-header"><h3>📘 Chapter 13: DAX Row-Level Calculations</h3></div>
                     <div class="chapter-body">
                         <p class="concept-text lang-en"><strong>🎯 Purpose:</strong> To learn how to create calculated columns, which perform calculations for each row and are useful for adding static attributes.</p>
-                        <img src="https://via.placeholder.com/800x450.png?text=Chapter+13+Calculated+Columns" alt="Placeholder for Chapter 13" class="w-full h-auto rounded-lg shadow-md my-8">
+                        <img src="images/13.png" alt="Placeholder for Chapter 13" class="w-full h-auto rounded-lg shadow-md my-8">
                         <h4 class="section-title">🧪 Example DAX Formulas for Calculated Columns</h4>
                         <div class="dax-code">-- In the 'sale' table
 Net_Revenue_Amount = 
@@ -550,7 +550,7 @@ SUMX(RELATEDTABLE(sale), sale[Net_Revenue_Amount])</div>
                     <div class="chapter-header"><h3>📘 Chapter 14: Building Your First Interactive Report</h3></div>
                     <div class="chapter-body">
                         <p class="concept-text lang-en"><strong>🎯 Purpose:</strong> To combine your data model and basic measures to build your first multi-visual report page, focusing on layout and interactivity.</p>
-                        <img src="https://via.placeholder.com/800x450.png?text=Chapter+14+First+PBI+Report" alt="Placeholder for Chapter 14" class="w-full h-auto rounded-lg shadow-md my-8">
+                        <img src="images/14.png" alt="Placeholder for Chapter 14" class="w-full h-auto rounded-lg shadow-md my-8">
                     </div>
                 </div>
                 <div id="chapter-15" class="chapter-card">
@@ -561,7 +561,7 @@ SUMX(RELATEDTABLE(sale), sale[Net_Revenue_Amount])</div>
                         <div class="dax-code">Revenue = SUM(sale[Net_Revenue_Amount])
 Target = SUM(target[Revenue_Target_MMK])
 Target Achievement % = DIVIDE([Revenue], [Target], 0)</div>
-                        <img src="https://via.placeholder.com/800x450.png?text=Chapter+15+Target+vs+Actual" alt="Placeholder for Chapter 15" class="w-full h-auto rounded-lg shadow-md my-8">
+                        <img src="images/15.png" alt="Placeholder for Chapter 15" class="w-full h-auto rounded-lg shadow-md my-8">
                     </div>
                 </div>
                 <div id="chapter-16" class="chapter-card">
@@ -573,14 +573,14 @@ Target Achievement % = DIVIDE([Revenue], [Target], 0)</div>
 Total_Expense = SUM(expense[Total Cost])
 Profit = [Revenue] - [Total_Expense]
 Profit Margin = DIVIDE([Profit], [Revenue], 0)</div>
-                        <img src="https://via.placeholder.com/800x450.png?text=Chapter+16+Comparison+Charts" alt="Placeholder for Chapter 16" class="w-full h-auto rounded-lg shadow-md my-8">
+                        <img src="images/16.png" alt="Placeholder for Chapter 16" class="w-full h-auto rounded-lg shadow-md my-8">
                     </div>
                 </div>
                 <div id="chapter-17" class="chapter-card">
                     <div class="chapter-header"><h3>📘 Chapter 17: Adding Interactivity with Slicers</h3></div>
                     <div class="chapter-body">
                         <p class="concept-text lang-en"><strong>🎯 Purpose:</strong> To empower report users by adding slicers, which allow them to filter the entire report page dynamically.</p>
-                        <img src="https://via.placeholder.com/800x450.png?text=Chapter+17+Power+BI+Slicers" alt="Placeholder for Chapter 17" class="w-full h-auto rounded-lg shadow-md my-8">
+                        <img src="images/17.png" alt="Placeholder for Chapter 17" class="w-full h-auto rounded-lg shadow-md my-8">
                     </div>
                 </div>
                 <div id="chapter-18" class="chapter-card">
@@ -592,7 +592,7 @@ Profit Margin = DIVIDE([Profit], [Revenue], 0)</div>
 YTD Sales = TOTALYTD([Revenue], 'date'[Date])
 LY_Sales = CALCULATE([Revenue], SAMEPERIODLASTYEAR('date'[Date]))
 LM_Sales = CALCULATE([Revenue], DATEADD('date'[Date], -1, MONTH))</div>
-                        <img src="https://via.placeholder.com/800x450.png?text=Chapter+18+YTD+and+MTD+DAX" alt="Placeholder for Chapter 18" class="w-full h-auto rounded-lg shadow-md my-8">
+                        <img src="images/18.png" alt="Placeholder for Chapter 18" class="w-full h-auto rounded-lg shadow-md my-8">
                     </div>
                 </div>
                 <div id="chapter-19" class="chapter-card">
@@ -602,14 +602,14 @@ LM_Sales = CALCULATE([Revenue], DATEADD('date'[Date], -1, MONTH))</div>
                         <h4 class="section-title">🧠 Advanced Time Intelligence Functions</h4>
                         <div class="dax-code">LY MTD Sales = CALCULATE([MTD Sales], SAMEPERIODLASTYEAR('date'[Date]))
 Last 6 Months Total = CALCULATE([Revenue], DATESINPERIOD('date'[Date], LASTDATE('date'[Date]), -6, MONTH))</div>
-                        <img src="https://via.placeholder.com/800x450.png?text=Chapter+19+Moving+Average" alt="Placeholder for Chapter 19" class="w-full h-auto rounded-lg shadow-md my-8">
+                        <img src="images/19.png" alt="Placeholder for Chapter 19" class="w-full h-auto rounded-lg shadow-md my-8">
                     </div>
                 </div>
                 <div id="chapter-20" class="chapter-card">
                     <div class="chapter-header"><h3>📘 Chapter 20: Publishing and Sharing Your Report</h3></div>
                     <div class="chapter-body">
                         <p class="concept-text lang-en"><strong>🎯 Purpose:</strong> To learn the process of publishing a report to the Power BI Service and sharing it securely as a Power BI App.</p>
-                        <img src="https://via.placeholder.com/800x450.png?text=Chapter+20+Power+BI+Service" alt="Placeholder for Chapter 20" class="w-full h-auto rounded-lg shadow-md my-8">
+                        <img src="images/20.png" alt="Placeholder for Chapter 20" class="w-full h-auto rounded-lg shadow-md my-8">
                     </div>
                 </div>
             </main>
