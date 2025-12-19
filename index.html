@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Analyst's Playbook: Full Handbook</title>
+    <title>Power BI Master Class - The Insights Solution</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,9 +15,25 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f9fafb;
+            padding-top: 80px; /* Space for the Fixed Navbar */
         }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        
         .part-heading {
-            scroll-margin-top: 2rem;
+            scroll-margin-top: 6rem; /* Adjusted for Navbar */
             font-size: 2.5rem;
             font-weight: 800;
             color: #111827;
@@ -28,12 +44,17 @@
             padding-bottom: 1rem;
         }
         .chapter-card {
-            scroll-margin-top: 2rem;
+            scroll-margin-top: 6rem; /* Adjusted for Navbar */
             background-color: white;
             border-radius: 0.75rem;
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
             margin-bottom: 2.5rem;
             overflow: hidden;
+            transition: transform 0.2s;
+        }
+        .chapter-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.05);
         }
         .chapter-header {
             background-color: #374151;
@@ -48,7 +69,7 @@
             padding: 1.5rem;
         }
         .section-title {
-            scroll-margin-top: 2rem;
+            scroll-margin-top: 6rem;
             font-size: 1.25rem;
             font-weight: 700;
             color: #1f2937;
@@ -72,6 +93,7 @@
             font-size: 0.875rem;
             white-space: pre-wrap;
             word-wrap: break-word;
+            border-left: 4px solid #3B82F6;
         }
         /* Custom Table Styles */
         .styled-table {
@@ -88,9 +110,12 @@
             border-bottom: 1px solid #e5e7eb;
         }
         .styled-table th {
-            background-color: #f9fafb;
-            font-weight: 600;
-            color: #374151;
+            background-color: #f3f4f6;
+            font-weight: 700;
+            color: #111827;
+        }
+        .styled-table tr:last-child td {
+            border-bottom: none;
         }
         .styled-table td code {
             background-color: #e5e7eb;
@@ -102,96 +127,171 @@
         }
     </style>
 </head>
-<body class="text-gray-800">
+<body class="text-gray-800 antialiased">
 
-    <div class="container mx-auto max-w-7xl px-4 py-12">
-        
-        <div class="mb-12">
-            <div class="flex flex-col sm:flex-row justify-between items-center bg-white p-6 rounded-lg shadow-md border-t-4 border-blue-600">
-                <div class="flex items-center mb-4 sm:mb-0">
-                    <img src="images/logo.png" alt="The Insights Solution Logo" class="w-24 h-24 rounded-lg mr-6">
-                </div>
-                <div class="text-center sm:text-right">
-                    <h1 class="text-3xl font-bold text-gray-800">The Insights Solution</h1>
-                    <p class="text-md text-gray-600 font-semibold mt-1">Arkarlinn@insights-mm.com</p>
-                    <p class="text-md text-gray-600">+959 425 320 949</p>
+    <nav class="fixed top-0 left-0 w-full bg-slate-900 text-white z-50 shadow-lg border-b border-slate-700">
+        <div class="container mx-auto max-w-7xl px-4">
+            <div class="flex flex-wrap justify-between items-center h-16">
+                
+                <a href="https://arkarpro.github.io/The_Insights_Solution_Profile/" class="flex items-center gap-2 hover:text-blue-400 transition duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                    </svg>
+                    <span class="font-bold text-lg tracking-wide hidden sm:block">The Insights Solution</span>
+                    <span class="font-bold text-lg tracking-wide sm:hidden">TIS</span>
+                </a>
+
+                <div class="flex space-x-1 sm:space-x-4 text-sm font-medium">
+                    <a href="https://arkarpro.github.io/The_Insights_Solution_Profile/" class="px-3 py-2 rounded-md hover:bg-slate-800 hover:text-blue-300 transition">
+                        Profile
+                    </a>
+
+                    <a href="#" class="px-3 py-2 rounded-md hover:bg-slate-800 hover:text-green-400 transition">
+                        Excel
+                    </a>
+
+                    <a href="#" class="px-3 py-2 rounded-md hover:bg-slate-800 hover:text-yellow-400 transition">
+                        Query
+                    </a>
+
+                    <a href="#" class="px-3 py-2 rounded-md bg-blue-600 text-white shadow-lg shadow-blue-500/30">
+                        Power BI
+                    </a>
                 </div>
             </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto max-w-7xl px-4 py-8">
+        
+        <div class="mb-12">
+            <a href="https://arkarpro.github.io/The_Insights_Solution_Profile/" class="block group">
+                <div class="flex flex-col sm:flex-row justify-between items-center bg-white p-6 rounded-xl shadow-lg border-t-4 border-blue-600 transition transform duration-300 group-hover:-translate-y-1 group-hover:shadow-2xl cursor-pointer">
+                    <div class="flex items-center mb-4 sm:mb-0">
+                        <img src="images/logo.jpg" alt="The Insights Solution Logo" class="w-24 h-24 rounded-full mr-6 object-cover border-4 border-white shadow-md bg-white">
+                        <div>
+                            <h1 class="text-3xl font-extrabold text-gray-900 tracking-tight group-hover:text-blue-700 transition-colors">The Insights Solution</h1>
+                            <span class="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full font-semibold uppercase tracking-wide mt-1">Data Education</span>
+                        </div>
+                    </div>
+                    <div class="text-center sm:text-right">
+                        <p class="text-md text-gray-600 font-semibold">Arkarlinn@insights-mm.com</p>
+                        <p class="text-md text-gray-600 font-mono">+959 425 320 949</p>
+                    </div>
+                </div>
+            </a>
+
             <div class="grid md:grid-cols-2 gap-8 mt-8">
-                <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-yellow-400">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-2">🌟 Vision Statement</h2>
-                    <p class="text-gray-700">Empowering smarter decisions through data-driven insights.</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-pink-500">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-2">🎯 Mission Statement</h2>
-                    <p class="text-gray-700">Helping professionals and businesses unlock the power of data with practical Excel & Power BI training, ready-to-use templates, and tailored analytics solutions.</p>
-                </div>
+                <a href="https://arkarpro.github.io/The_Insights_Solution_Profile/" class="block group">
+                    <div class="h-full bg-white p-6 rounded-xl shadow-md border-l-4 border-yellow-400 transition transform duration-300 group-hover:-translate-y-1 group-hover:shadow-xl cursor-pointer">
+                        <h2 class="text-xl font-bold text-gray-900 mb-2 flex items-center group-hover:text-yellow-600 transition-colors">
+                            <span class="text-2xl mr-2">🌟</span> Vision Statement
+                        </h2>
+                        <p class="text-gray-700 leading-relaxed">Empowering smarter decisions through data-driven insights.</p>
+                    </div>
+                </a>
+
+                <a href="https://arkarpro.github.io/The_Insights_Solution_Profile/" class="block group">
+                    <div class="h-full bg-white p-6 rounded-xl shadow-md border-l-4 border-pink-500 transition transform duration-300 group-hover:-translate-y-1 group-hover:shadow-xl cursor-pointer">
+                        <h2 class="text-xl font-bold text-gray-900 mb-2 flex items-center group-hover:text-pink-600 transition-colors">
+                            <span class="text-2xl mr-2">🎯</span> Mission Statement
+                        </h2>
+                        <p class="text-gray-700 leading-relaxed">Helping professionals and businesses unlock the power of data with practical Excel & Power BI training.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-slate-800 to-slate-900 rounded-2xl p-8 mb-12 text-center text-white shadow-2xl relative overflow-hidden group">
+            <div class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 rounded-full bg-blue-600 opacity-20 blur-3xl group-hover:opacity-30 transition duration-700"></div>
+            
+            <div class="relative z-10">
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-4 tracking-tight">
+                    🚀 Transform Your Career with Data
+                </h2>
+                <p class="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
+                    Master the tools that drive modern business. Join our next live intake or select individual modules tailored to your needs.
+                </p>
+                
+                <a href="https://forms.gle/torodmd989212jxk7" target="_blank" class="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 px-10 rounded-full shadow-lg transform transition hover:-translate-y-1 hover:shadow-blue-500/50 text-lg">
+                    <span class="mr-2">✍️</span> Enroll Now
+                </a>
+                
+                <p class="text-sm text-gray-400 mt-6 font-medium">
+                    * Choose between <span class="text-blue-400">Full Course</span> or <span class="text-blue-400">Individual Modules</span> via the registration form.
+                </p>
             </div>
         </div>
 
         <div class="lg:grid lg:grid-cols-12 lg:gap-8">
             
             <aside class="lg:col-span-3 mb-8 lg:mb-0">
-                <div class="sticky top-8">
-                    <h2 class="text-xl font-bold text-gray-900 mb-4">Table of Contents</h2>
+                <div class="sticky top-24 bg-white p-6 rounded-xl shadow-sm border border-gray-100 max-h-[calc(100vh-6rem)] overflow-y-auto">
+                    
+                    <h2 class="text-lg font-bold text-gray-900 mb-4 uppercase tracking-wider border-b pb-2">Course Syllabus</h2>
                     <nav class="text-sm">
                         <ul class="space-y-4">
                             <li>
-                                <h3 class="font-semibold text-gray-800">Part 1: Excel Engine</h3>
+                                <h3 class="font-bold text-blue-600">Part 1: Excel Engine</h3>
                                 <ul class="space-y-2 mt-2 border-l-2 border-gray-200 pl-4">
-                                    <li><a href="#chapter-1" class="text-gray-600 hover:text-blue-600 font-medium">Chapter 1: Data Prep</a></li>
-                                    <li><a href="#chapter-2" class="text-gray-600 hover:text-blue-600 font-medium">Chapter 2: Advanced Lookups</a></li>
+                                    <li><a href="#chapter-1" class="text-gray-600 hover:text-blue-600 transition">Chapter 1: Data Prep</a></li>
+                                    <li><a href="#chapter-2" class="text-gray-600 hover:text-blue-600 transition">Chapter 2: Advanced Lookups</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <h3 class="font-semibold text-gray-800">Part 2: Power Query</h3>
+                                <h3 class="font-bold text-blue-600">Part 2: Power Query</h3>
                                 <ul class="space-y-2 mt-2 border-l-2 border-gray-200 pl-4">
-                                    <li><a href="#chapter-3" class="text-gray-600 hover:text-blue-600 font-medium">Chapter 3: Importing</a></li>
-                                    <li><a href="#chapter-4" class="text-gray-600 hover:text-blue-600 font-medium">Chapter 4: Merging</a></li>
-                                    <li><a href="#chapter-5" class="text-gray-600 hover:text-blue-600 font-medium">Chapter 5: Master Table</a></li>
-                                    <li><a href="#chapter-6" class="text-gray-600 hover:text-blue-600 font-medium">Chapter 6: Transforms</a></li>
+                                    <li><a href="#chapter-3" class="text-gray-600 hover:text-blue-600 transition">Chapter 3: Importing</a></li>
+                                    <li><a href="#chapter-4" class="text-gray-600 hover:text-blue-600 transition">Chapter 4: Merging</a></li>
+                                    <li><a href="#chapter-5" class="text-gray-600 hover:text-blue-600 transition">Chapter 5: Master Table</a></li>
+                                    <li><a href="#chapter-6" class="text-gray-600 hover:text-blue-600 transition">Chapter 6: Transforms</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <h3 class="font-semibold text-gray-800">Part 3: Data Modeling & DAX</h3>
+                                <h3 class="font-bold text-blue-600">Part 3: Data Modeling & DAX</h3>
                                 <ul class="space-y-2 mt-2 border-l-2 border-gray-200 pl-4">
-                                    <li><a href="#chapter-7" class="text-gray-600 hover:text-blue-600 font-medium">Chapter 7: Star Schema</a></li>
-                                    <li><a href="#chapter-8" class="text-gray-600 hover:text-blue-600 font-medium">Chapter 8: Intermediate DAX</a></li>
-                                    <li><a href="#chapter-9" class="text-gray-600 hover:text-blue-600 font-medium">Chapter 9: Galaxy Schema</a></li>
-                                    <li><a href="#chapter-10" class="text-gray-600 hover:text-blue-600 font-medium">Chapter 10: Time Intelligence</a></li>
+                                    <li><a href="#chapter-7" class="text-gray-600 hover:text-blue-600 transition">Chapter 7: Star Schema</a></li>
+                                    <li><a href="#chapter-8" class="text-gray-600 hover:text-blue-600 transition">Chapter 8: Intermediate DAX</a></li>
+                                    <li><a href="#chapter-9" class="text-gray-600 hover:text-blue-600 transition">Chapter 9: Galaxy Schema</a></li>
+                                    <li><a href="#chapter-10" class="text-gray-600 hover:text-blue-600 transition">Chapter 10: Time Intelligence</a></li>
                                 </ul>
                             </li>
                             <li>
-                                <h3 class="font-semibold text-gray-800">Part 4: Power BI Visualization</h3>
+                                <h3 class="font-bold text-blue-600">Part 4: Visualization</h3>
                                 <ul class="space-y-2 mt-2 border-l-2 border-gray-200 pl-4">
-                                    <li><a href="#chapter-11" class="text-gray-600 hover:text-blue-600 font-medium">Chapter 11: Intro to Power BI</a></li>
-                                    <li><a href="#chapter-12" class="text-gray-600 hover:text-blue-600 font-medium">Chapter 12: Date Tables</a></li>
-                                    <li><a href="#chapter-13" class="text-gray-600 hover:text-blue-600 font-medium">Chapter 13: Row-Level DAX</a></li>
-                                    <li><a href="#chapter-14" class="text-gray-600 hover:text-blue-600 font-medium">Chapter 14: First Report</a></li>
-                                    <li><a href="#chapter-15" class="text-gray-600 hover:text-blue-600 font-medium">Chapter 15: Target Visuals</a></li>
-                                    <li><a href="#chapter-16" class="text-gray-600 hover:text-blue-600 font-medium">Chapter 16: Comparison Visuals</a></li>
-                                    <li><a href="#chapter-17" class="text-gray-600 hover:text-blue-600 font-medium">Chapter 17: Slicers</a></li>
-                                    <li><a href="#chapter-18" class="text-gray-600 hover:text-blue-600 font-medium">Chapter 18: Time Series (Part 1)</a></li>
-                                    <li><a href="#chapter-19" class="text-gray-600 hover:text-blue-600 font-medium">Chapter 19: Time Series (Part 2)</a></li>
-                                    <li><a href="#chapter-20" class="text-gray-600 hover:text-blue-600 font-medium">Chapter 20: Publishing</a></li>
+                                    <li><a href="#chapter-11" class="text-gray-600 hover:text-blue-600 transition">Chapter 11: Intro to Power BI</a></li>
+                                    <li><a href="#chapter-12" class="text-gray-600 hover:text-blue-600 transition">Chapter 12: Date Tables</a></li>
+                                    <li><a href="#chapter-13" class="text-gray-600 hover:text-blue-600 transition">Chapter 13: Row-Level DAX</a></li>
+                                    <li><a href="#chapter-14" class="text-gray-600 hover:text-blue-600 transition">Chapter 14: First Report</a></li>
+                                    <li><a href="#chapter-15" class="text-gray-600 hover:text-blue-600 transition">Chapter 15: Target Visuals</a></li>
+                                    <li><a href="#chapter-16" class="text-gray-600 hover:text-blue-600 transition">Chapter 16: Comparison</a></li>
+                                    <li><a href="#chapter-17" class="text-gray-600 hover:text-blue-600 transition">Chapter 17: Slicers</a></li>
+                                    <li><a href="#chapter-18" class="text-gray-600 hover:text-blue-600 transition">Chapter 18: Time Series I</a></li>
+                                    <li><a href="#chapter-19" class="text-gray-600 hover:text-blue-600 transition">Chapter 19: Time Series II</a></li>
+                                    <li><a href="#chapter-20" class="text-gray-600 hover:text-blue-600 transition">Chapter 20: Publishing</a></li>
                                 </ul>
                             </li>
                         </ul>
                     </nav>
+
+                    <div class="mt-6 pt-6 border-t border-gray-100 text-center pb-2">
+                        <p class="font-semibold text-gray-800 mb-2 text-sm">Ready to start?</p>
+                        <a href="https://forms.gle/torodmd989212jxk7" target="_blank" class="block w-full bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition text-sm shadow-md hover:shadow-lg transform hover:-translate-y-0.5">Enroll Now</a>
+                    </div>
                 </div>
             </aside>
 
             <main class="lg:col-span-9">
                 <header class="mb-12 text-center">
-                    <h1 class="text-4xl font-extrabold tracking-tight text-gray-900">The Analyst's Playbook</h1>
-                    <p class="mt-2 text-lg text-gray-600">A Comprehensive Guide to Data Analysis</p>
+                    <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900 mb-4">The Analyst's Playbook</h1>
+                    <p class="text-xl text-gray-500 font-medium">A Comprehensive Guide to Modern Data Analysis</p>
                 </header>
 
                 <h2 id="part-1" class="part-heading">Part 1: Mastering the Data Engine in Excel</h2>
                 <div id="chapter-1" class="chapter-card">
                     <div class="chapter-header"><h3>📘 Chapter 1: Excel Master – Sales Data Preparation & Customer Summary</h3></div>
                     <div class="chapter-body">
-                        <p class="concept-text lang-my">မြန်မာဘာသာ – အခန်း (၁): Excel ကျွမ်းကျင်မှု – အရောင်းဒေတာပြင်ဆင်ခြင်းနှင့် ဖောက်သည်အဆင့်အခြေခံစာရင်း ချုပ်ခြင်း</p>
+                        <p class="concept-text lang-my font-medium text-blue-800">မြန်မာဘာသာ – အခန်း (၁): Excel ကျွမ်းကျင်မှု – အရောင်းဒေတာပြင်ဆင်ခြင်းနှင့် ဖောက်သည်အဆင့်အခြေခံစာရင်း ချုပ်ခြင်း</p>
                         <p class="concept-text lang-en"><strong>🎯 Purpose of This Chapter:</strong> To teach how to prepare and summarize sales data using Excel formulas, 
                             enabling analysts to build a strong foundation for Power BI modeling.</p>
                         <h4 class="section-title">🧠 Key Concepts Covered</h4>
@@ -207,8 +307,7 @@
                             </table>
                         </div>
 
-                        <img src="images/1.png" #ပုံထည့်ရန်
-                        alt="Placeholder for Chapter 1" class="w-full h-auto rounded-lg shadow-md my-8">
+                        <img src="images/1.png" alt="Excel Data Preparation" class="w-full h-auto rounded-lg shadow-md my-8 border border-gray-200">
 
                         <h4 id="ch1-sec1" class="section-title">
                             🧩 I. Sales Table Column Calculations</h4>
@@ -243,7 +342,7 @@
                 <div id="chapter-2" class="chapter-card">
                     <div class="chapter-header"><h3>📘 Chapter 2: Advanced Lookup, Discount Logic & Regional Analysis</h3></div>
                     <div class="chapter-body">
-                         <p class="concept-text lang-my">အခန်း (၂): အဆင့်မြင့် XLOOKUP အသုံးပြုခြင်း၊ လျှော့စျေးတွက်ချက်ခြင်းနှင့် ဒေသအလိုက် ချုပ်ခြင်း</p>
+                         <p class="concept-text lang-my font-medium text-blue-800">အခန်း (၂): အဆင့်မြင့် XLOOKUP အသုံးပြုခြင်း၊ လျှော့စျေးတွက်ချက်ခြင်းနှင့် ဒေသအလိုက် ချုပ်ခြင်း</p>
                         <p class="concept-text lang-en"><strong>🎯 Purpose of This Chapter:</strong> To teach how to use advanced lookup functions (like XLOOKUP), apply conditional logic for discounts, and perform region-based analysis using SUMPRODUCT.</p>
                         <h4 class="section-title">🧠 Key Concepts Covered</h4>
                         <div class="overflow-x-auto">
@@ -259,7 +358,7 @@
                         </div>
 
                         <img src="images/2.png" 
-                        alt="Placeholder for Chapter 2" class="w-full h-auto rounded-lg shadow-md my-8">
+                        alt="Advanced Lookup Analysis" class="w-full h-auto rounded-lg shadow-md my-8 border border-gray-200">
                         
                         <h4 id="ch2-sec1" class="section-title">
                             🧩 I. Top 10 Customer Summary Using XLOOKUP</h4>
@@ -310,7 +409,7 @@
                         </table>
                     </div>
                     <img src="images/3.png" 
-                    alt="Placeholder for Chapter 3" class="w-full h-auto rounded-lg shadow-md my-8">
+                    alt="Power Query Import" class="w-full h-auto rounded-lg shadow-md my-8 border border-gray-200">
                     <h4 class="section-title">
                         🧩 Stronger Partitioning with Full Step-by-Step Detail</h4>
                         <p>This chapter provides detailed, step-by-step guides for importing data from various sources like individual Excel files, multiple CSVs, multiple sheets in one workbook, and combining all files from a folder.</p>
@@ -338,13 +437,13 @@
                                 </table>
                             </div>
                             <img src="images/4.png" 
-                            alt="Placeholder for Chapter 4" class="w-full h-auto rounded-lg shadow-md my-8"><h4 class="section-title">🧩 Join Types Explained</h4>
+                            alt="Merging and Appending" class="w-full h-auto rounded-lg shadow-md my-8 border border-gray-200"><h4 class="section-title">🧩 Join Types Explained</h4>
                             <p>This chapter covers the practical application of different SQL-style joins within Power Query (Left Outer, Right Outer, Full Outer, Inner, Left Anti, Right Anti) to achieve various customer segmentation goals, such as identifying active, inactive, and new customers.</p>
                         </div>
                 </div>
 
                 <div id="chapter-5" class="chapter-card">
-                     <div class="chapter-header">
+                      <div class="chapter-header">
                         <h3>📘 Chapter 5: Creating a Master Table at the Transactional Level</h3>
                     </div>
                     <div class="chapter-body">
@@ -363,7 +462,7 @@
                                 </table>
                             </div>
                             <img src="images/5.png" 
-                            alt="Placeholder for Chapter 5" class="w-full h-auto rounded-lg shadow-md my-8">
+                            alt="Master Table Creation" class="w-full h-auto rounded-lg shadow-md my-8 border border-gray-200">
                             <h4 class="section-title">🧩 Process Overview</h4>
                             <p>Follow a detailed process of importing multiple related datasets and using a series of Merge steps to combine them into a single, comprehensive "Fact Table" that contains all necessary attributes for analysis. This section also introduces basic M Language for creating custom columns.</p>
                         </div>
@@ -375,7 +474,7 @@
                     </div>
                     <div class="chapter-body">
                         <p class="concept-text lang-en">
-                            strong>🎯 Purpose of This Chapter:</strong> 
+                            <strong>🎯 Purpose of This Chapter:</strong> 
                             To practice advanced data transformation techniques using Power Query, including grouping, summarizing, pivoting, and unpivoting.</p>
                             <h4 class="section-title">🧠 Key Concepts Covered</h4>
                             <div class="overflow-x-auto">
@@ -389,7 +488,7 @@
                                 </table>
                             </div>
                             <img src="images/6.png" 
-                            alt="Placeholder for Chapter 6" class="w-full h-auto rounded-lg shadow-md my-8">
+                            alt="Advanced Transformations" class="w-full h-auto rounded-lg shadow-md my-8 border border-gray-200">
                             <h4 class="section-title">🧩 Pivoting vs. Unpivoting</h4>
                             <p>This chapter focuses on the powerful Pivot and Unpivot features. Learn how to transform data from a tall format to a wide format (Pivoting) to create summary tables, and from wide back to tall (Unpivoting) to normalize data for easier modeling and visualization.</p>
                         </div>
@@ -416,7 +515,7 @@
                                 </table>
                             </div>
                             <img src="images/7.png" 
-                            alt="Placeholder for Chapter 7" class="w-full h-auto rounded-lg shadow-md my-8">
+                            alt="Star Schema Basics" class="w-full h-auto rounded-lg shadow-md my-8 border border-gray-200">
                             <h4 class="section-title">🧩 Process Overview</h4>
                             <p>Learn to load data into the Power Pivot Data Model, create relationships between a central fact table (e.g., Sales) and its dimension tables (e.g., Products, Customers), and write your first simple DAX measures and calculated columns using RELATED.</p>
                         </div>
@@ -442,7 +541,7 @@
                                 </table>
                             </div>
                             <img src="images/8.png" 
-                            alt="Placeholder for Chapter 8" class="w-full h-auto rounded-lg shadow-md my-8">
+                            alt="Intermediate DAX" class="w-full h-auto rounded-lg shadow-md my-8 border border-gray-200">
                             <h4 class="section-title">🧩 Step-by-Step Instructions</h4>
                             <p>This section guides you through connecting all dimension tables to your fact table, creating a dedicated Date table (essential for time-based analysis), and writing more advanced DAX measures like `SUMX` for correct totals and `SWITCH` for complex conditional logic.</p>
                         </div>
@@ -467,7 +566,7 @@
                             </table>
                         </div>
                         <img src="images/9.png" 
-                        alt="Placeholder for Chapter 9" class="w-full h-auto rounded-lg shadow-md my-8">
+                        alt="Galaxy Schema" class="w-full h-auto rounded-lg shadow-md my-8 border border-gray-200">
                         <h4 class="section-title">🧩 Step-by-Step Instructions</h4>
                         <p>Learn how to add additional fact tables (like Expenses and Sales Targets) to the data model and connect them to shared dimension tables (like Date and Region). This evolution from a single fact table (Star) to multiple fact tables (Galaxy) allows for more complex, integrated analysis.</p>
                     </div>
@@ -484,7 +583,7 @@
                         <h4 id="ch10-sec1" class="section-title">🧠 Understanding CALCULATE</h4>
                         <p class="concept-text">The <code>CALCULATE</code> function is the most important function in DAX. It modifies the filter context of a calculation, allowing you to apply custom filters, remove existing ones, or perform time-based calculations.</p>
                         <img src="images/10.png" 
-                        alt="Placeholder for Chapter 10" class="w-full h-auto rounded-lg shadow-md my-8">
+                        alt="Time Intelligence" class="w-full h-auto rounded-lg shadow-md my-8 border border-gray-200">
                         <h4 id="ch10-sec2" class="section-title">🧪 DAX Time Intelligence Measures</h4>
                         <div class="overflow-x-auto">
                             <table class="styled-table">
@@ -509,7 +608,7 @@
                             <li>Understanding the three main views: Report View, Data View, and Model View.</li>
                             <li>Importing simple data from Excel to create a first visual.</li>
                         </ul>
-                        <img src="images/11.png" alt="Placeholder for Chapter 11" class="w-full h-auto rounded-lg shadow-md my-8">
+                        <img src="images/11.png" alt="Intro to Power BI" class="w-full h-auto rounded-lg shadow-md my-8 border border-gray-200">
                     </div>
                 </div>
                 <div id="chapter-12" class="chapter-card">
@@ -518,7 +617,7 @@
                         <p class="concept-text lang-en"><strong>🎯 Purpose:</strong> To create a robust, reusable Date table using DAX, which is the foundation for all time intelligence analysis.</p>
                         <h4 class="section-title">🧠 Key Functions</h4>
                         <ul class="list-disc list-inside text-gray-700 space-y-1"><li><code>CALENDARAUTO()</code> / <code>CALENDAR()</code></li><li><code>ADDCOLUMNS()</code></li><li><code>FORMAT()</code>, <code>YEAR()</code>, <code>MONTH()</code>, <code>QUARTER()</code></li></ul>
-                        <img src="images/12.png" alt="Placeholder for Chapter 12" class="w-full h-auto rounded-lg shadow-md my-8">
+                        <img src="images/12.png" alt="Date Table" class="w-full h-auto rounded-lg shadow-md my-8 border border-gray-200">
                         <h4 class="section-title">🧪 Full DAX Formula for a Comprehensive Date Table</h4>
                         <div class="dax-code">date = 
 ADDCOLUMNS(
@@ -535,7 +634,7 @@ ADDCOLUMNS(
                     <div class="chapter-header"><h3>📘 Chapter 13: DAX Row-Level Calculations</h3></div>
                     <div class="chapter-body">
                         <p class="concept-text lang-en"><strong>🎯 Purpose:</strong> To learn how to create calculated columns, which perform calculations for each row and are useful for adding static attributes.</p>
-                        <img src="images/13.png" alt="Placeholder for Chapter 13" class="w-full h-auto rounded-lg shadow-md my-8">
+                        <img src="images/13.png" alt="Row Level DAX" class="w-full h-auto rounded-lg shadow-md my-8 border border-gray-200">
                         <h4 class="section-title">🧪 Example DAX Formulas for Calculated Columns</h4>
                         <div class="dax-code">-- In the 'sale' table
 Net_Revenue_Amount = 
@@ -550,7 +649,7 @@ SUMX(RELATEDTABLE(sale), sale[Net_Revenue_Amount])</div>
                     <div class="chapter-header"><h3>📘 Chapter 14: Building Your First Interactive Report</h3></div>
                     <div class="chapter-body">
                         <p class="concept-text lang-en"><strong>🎯 Purpose:</strong> To combine your data model and basic measures to build your first multi-visual report page, focusing on layout and interactivity.</p>
-                        <img src="images/14.png" alt="Placeholder for Chapter 14" class="w-full h-auto rounded-lg shadow-md my-8">
+                        <img src="images/14.png" alt="First Report" class="w-full h-auto rounded-lg shadow-md my-8 border border-gray-200">
                     </div>
                 </div>
                 <div id="chapter-15" class="chapter-card">
@@ -561,7 +660,7 @@ SUMX(RELATEDTABLE(sale), sale[Net_Revenue_Amount])</div>
                         <div class="dax-code">Revenue = SUM(sale[Net_Revenue_Amount])
 Target = SUM(target[Revenue_Target_MMK])
 Target Achievement % = DIVIDE([Revenue], [Target], 0)</div>
-                        <img src="images/15.png" alt="Placeholder for Chapter 15" class="w-full h-auto rounded-lg shadow-md my-8">
+                        <img src="images/15.png" alt="Target Visuals" class="w-full h-auto rounded-lg shadow-md my-8 border border-gray-200">
                     </div>
                 </div>
                 <div id="chapter-16" class="chapter-card">
@@ -573,14 +672,14 @@ Target Achievement % = DIVIDE([Revenue], [Target], 0)</div>
 Total_Expense = SUM(expense[Total Cost])
 Profit = [Revenue] - [Total_Expense]
 Profit Margin = DIVIDE([Profit], [Revenue], 0)</div>
-                        <img src="images/16.png" alt="Placeholder for Chapter 16" class="w-full h-auto rounded-lg shadow-md my-8">
+                        <img src="images/16.png" alt="Comparison Visuals" class="w-full h-auto rounded-lg shadow-md my-8 border border-gray-200">
                     </div>
                 </div>
                 <div id="chapter-17" class="chapter-card">
                     <div class="chapter-header"><h3>📘 Chapter 17: Adding Interactivity with Slicers</h3></div>
                     <div class="chapter-body">
                         <p class="concept-text lang-en"><strong>🎯 Purpose:</strong> To empower report users by adding slicers, which allow them to filter the entire report page dynamically.</p>
-                        <img src="images/17.png" alt="Placeholder for Chapter 17" class="w-full h-auto rounded-lg shadow-md my-8">
+                        <img src="images/17.png" alt="Slicers" class="w-full h-auto rounded-lg shadow-md my-8 border border-gray-200">
                     </div>
                 </div>
                 <div id="chapter-18" class="chapter-card">
@@ -592,7 +691,7 @@ Profit Margin = DIVIDE([Profit], [Revenue], 0)</div>
 YTD Sales = TOTALYTD([Revenue], 'date'[Date])
 LY_Sales = CALCULATE([Revenue], SAMEPERIODLASTYEAR('date'[Date]))
 LM_Sales = CALCULATE([Revenue], DATEADD('date'[Date], -1, MONTH))</div>
-                        <img src="images/18.png" alt="Placeholder for Chapter 18" class="w-full h-auto rounded-lg shadow-md my-8">
+                        <img src="images/18.png" alt="Time Series 1" class="w-full h-auto rounded-lg shadow-md my-8 border border-gray-200">
                     </div>
                 </div>
                 <div id="chapter-19" class="chapter-card">
@@ -602,26 +701,45 @@ LM_Sales = CALCULATE([Revenue], DATEADD('date'[Date], -1, MONTH))</div>
                         <h4 class="section-title">🧠 Advanced Time Intelligence Functions</h4>
                         <div class="dax-code">LY MTD Sales = CALCULATE([MTD Sales], SAMEPERIODLASTYEAR('date'[Date]))
 Last 6 Months Total = CALCULATE([Revenue], DATESINPERIOD('date'[Date], LASTDATE('date'[Date]), -6, MONTH))</div>
-                        <img src="images/19.png" alt="Placeholder for Chapter 19" class="w-full h-auto rounded-lg shadow-md my-8">
+                        <img src="images/19.png" alt="Time Series 2" class="w-full h-auto rounded-lg shadow-md my-8 border border-gray-200">
                     </div>
                 </div>
                 <div id="chapter-20" class="chapter-card">
                     <div class="chapter-header"><h3>📘 Chapter 20: Publishing and Sharing Your Report</h3></div>
                     <div class="chapter-body">
                         <p class="concept-text lang-en"><strong>🎯 Purpose:</strong> To learn the process of publishing a report to the Power BI Service and sharing it securely as a Power BI App.</p>
-                        <img src="images/20.png" alt="Placeholder for Chapter 20" class="w-full h-auto rounded-lg shadow-md my-8">
+                        <img src="images/20.png" alt="Publishing" class="w-full h-auto rounded-lg shadow-md my-8 border border-gray-200">
                     </div>
                 </div>
             </main>
         </div>
 
-        <footer class="text-center mt-16 pt-8 border-t border-gray-300">
-            <p class="text-lg font-semibold text-gray-800">Powered by Data Insights with Arkar</p>
-            <p class="text-gray-600 mt-2">Find us on 
-                <a href="https://www.facebook.com/share/1DB4aEH7xs/" class="text-blue-600 hover:underline" target="_blank">Facebook</a> & 
-                <a href="https://youtube.com/@datainsightswitharkar?si=NPDfTvREb0IxtRDj" class="text-blue-600 hover:underline" target="_blank">YouTube</a>
-            </p>
-            <p class="text-gray-500 text-sm mt-4">&copy; 2025 The Insights Solution. All Rights Reserved.</p>
+        <div class="bg-gray-100 rounded-xl p-8 mt-12 text-center border border-gray-200 mx-4">
+            <h3 class="text-2xl font-bold text-gray-900 mb-2">Ready to take the next step?</h3>
+            <p class="text-gray-600 mb-6">Join hundreds of other professionals mastering data with The Insights Solution.</p>
+            <a href="https://forms.gle/torodmd989212jxk7" target="_blank" class="inline-block bg-blue-600 text-white font-bold py-3 px-8 rounded-full hover:bg-blue-700 transition shadow-lg">Register for Class</a>
+        </div>
+
+        <footer class="text-center mt-16 pt-8 border-t border-gray-300 pb-8">
+            <p class="text-lg font-bold text-gray-800 mb-4">Powered by Data Insights with Arkar</p>
+            
+            <p class="text-gray-600 mb-4 font-medium">Find us on</p>
+            
+            <div class="flex justify-center items-center gap-6 mb-6">
+                <a href="https://www.linkedin.com/in/arkar-linn-datapro/" target="_blank" class="transition transform hover:scale-110 hover:-translate-y-1">
+                    <img src="images/linkedin.png" alt="LinkedIn" class="w-10 h-10">
+                </a>
+
+                <a href="https://youtube.com/@datainsightswitharkar?si=NPDfTvREb0IxtRDj" target="_blank" class="transition transform hover:scale-110 hover:-translate-y-1">
+                    <img src="images/youtube.png" alt="YouTube" class="w-10 h-10">
+                </a>
+
+                <a href="https://www.facebook.com/share/1DB4aEH7xs/" target="_blank" class="transition transform hover:scale-110 hover:-translate-y-1">
+                    <img src="images/facebook.png" alt="Facebook" class="w-10 h-10">
+                </a>
+            </div>
+
+            <p class="text-gray-500 text-sm">&copy; 2025 The Insights Solution. All Rights Reserved.</p>
         </footer>
     </div>
 
